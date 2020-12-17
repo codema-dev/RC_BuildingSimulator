@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "rc_buildingsimulator"
+version = "0.1.0"
+description = "A Resistance Capacitance Model for an Energetic Simulation of a Building "
+authors = ["architecture-building-systems <thomas@arch.ethz.ch>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.19.4"
+Cython = "^0.29.21"
+matplotlib = "^3.3.3"
+pandas = "^1.1.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
