@@ -4,11 +4,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
-from rc_buildingsimulator.radiation import Location
+# Set root folder one level up, just for this example
+mainPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, mainPath)
+
+from radiation import Location
 
 matplotlib.style.use('ggplot')
 
-Zurich = Location(epwfile_path='../rc_buildingsimulator/auxiliary/Zurich-Kloten_2013.epw'))
+Zurich = Location(epwfile_path=os.path.join(
+    mainPath, 'auxiliary', 'Zurich-Kloten_2013.epw'))
 
 
 Zurich.calc_sun_position(latitude_deg=47.480, longitude_deg=8.536, year=2015, hoy=3708)
@@ -25,7 +30,8 @@ for hoy in range(8760):
     Azimuth.append(sun[1])
     Sunnyhoy.append(hoy + 1)
 
-sunPosition = pd.read_csv('../rc_buildingsimulator/auxiliary/SunPosition.csv'), skiprows=1)
+sunPosition = pd.read_csv(os.path.join(
+    mainPath, 'auxiliary', 'SunPosition.csv'), skiprows=1)
 
 transSunPos = sunPosition.transpose()
 hoy_check = transSunPos.index.tolist()

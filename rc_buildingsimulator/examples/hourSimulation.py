@@ -1,7 +1,11 @@
 import sys
 import os
 
-from rc_buildingsimulator.building_physics import Zone  # Importing Zone Class
+# Set root folder one level up, just for this example
+sys.path.insert(0, os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..')))
+
+from building_physics import Zone  # Importing Zone Class
 
 # Example Inputs
 t_air = 10

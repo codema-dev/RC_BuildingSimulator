@@ -14,12 +14,18 @@ __status__ = "Production"
 import sys
 import os
 
-from rc_buildingsimulator.radiation import Location
-from rc_buildingsimulator.radiation import Window
+# Set root folder one level up, just for this example
+mainPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, mainPath)
+
+
+from radiation import Location
+from radiation import Window
 
 
 # Initialise the Location with a weather file
-Zurich = Location(epwfile_path='../rc_buildingsimulator/auxiliary/Zurich-Kloten_2013.epw'))
+Zurich = Location(epwfile_path=os.path.join(
+    mainPath, 'auxiliary', 'Zurich-Kloten_2013.epw'))
 
 # Set the hour of the year for determination of the solar angles
 # 9:00 am 16 June

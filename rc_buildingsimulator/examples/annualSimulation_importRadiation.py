@@ -19,8 +19,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
-from rc_buildingsimulator.building_physics import Zone  # Importing Zone Class
-from rc_buildingsimulator.auxiliary import epwreader
+# Set root folder one level up, just for this example
+mainPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, mainPath)
+
+
+from building_physics import Zone  # Importing Zone Class
+from auxiliary import epwreader
 
 matplotlib.style.use('ggplot')
 
@@ -45,18 +50,21 @@ max_occupancy = 3.0
 Office = Zone()
 
 # Read Weather Data
-weatherData = epwreader.epwreader('../rc_buildingsimulator/auxiliaryZurich-Kloten_2013.epw'))
+weatherData = epwreader.epwreader(os.path.join(
+    mainPath, 'auxiliary', 'Zurich-Kloten_2013.epw'))
 
 
 # Read Sunposition and Extract Azimuth and Alitutude Angles
-sunPosition = pd.read_csv('../rc_buildingsimulator/auxiliary/SunPosition.csv'), skiprows=1)
+sunPosition = pd.read_csv(os.path.join(
+    mainPath, 'auxiliary', 'SunPosition.csv'), skiprows=1)
 
 altitude = sunPosition.loc[0]
 azimuth = 180 - sunPosition.loc[1]
 
 
 # Read Occupancy Profile
-occupancyProfile = pd.read_csv('../rc_buildingsimulator/auxiliary/schedules_el_OFFICE.csv'))
+occupancyProfile = pd.read_csv(os.path.join(
+    mainPath, 'auxiliary', 'schedules_el_OFFICE.csv'))
 
 t_m_prev = 20
 
