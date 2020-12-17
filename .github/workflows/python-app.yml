@@ -35,5 +35,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittests
       run: |
-        python3 rc_simulator/tests/testRCmodel.py
-        python3 rc_simulator/tests/testRadiation.py
+        python3 rc_buildingsimulator/tests/testRCmodel.py
+        python3 rc_buildingsimulator/tests/testRadiation.py
