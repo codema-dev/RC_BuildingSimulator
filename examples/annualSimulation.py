@@ -17,16 +17,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
-# Set root folder one level up, just for this example
-mainPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.insert(0, mainPath)
-
-
-from building_physics import Zone  # Importing Zone Class
-import supply_system
-import emission_system
-from radiation import Location
-from radiation import Window
+from rc_buildingsimulator.building_physics import Zone  # Importing Zone Class
+from rc_buildingsimulator import supply_system
+from rc_buildingsimulator import emission_system
+from rc_buildingsimulator.radiation import Location
+from rc_buildingsimulator.radiation import Window
 
 matplotlib.style.use('ggplot')
 
@@ -43,8 +38,7 @@ COP = []
 
 
 # Initialise the Location with a weather file
-Zurich = Location(epwfile_path=os.path.join(
-    mainPath, 'auxiliary', 'Zurich-Kloten_2013.epw'))
+Zurich = Location(epwfile_path='../rc_buildingsimulator/auxiliary/Zurich-Kloten_2013.epw')
 
 # Initialise an instance of the Zone. Empty spaces take on the default
 # parameters. See ZonePhysics.py to see the default values
@@ -88,8 +82,7 @@ max_occupancy = 3.0
 
 
 # Read Occupancy Profile
-occupancyProfile = pd.read_csv(os.path.join(
-    mainPath, 'auxiliary', 'schedules_el_OFFICE.csv'))
+occupancyProfile = pd.read_csv('../rc_buildingsimulator/auxiliary/schedules_el_OFFICE.csv')
 
 # Starting temperature of the builidng
 t_m_prev = 20
