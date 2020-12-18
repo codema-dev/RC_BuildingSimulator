@@ -11,7 +11,7 @@ HOW TO USE
 
 ::
 
-    from buildingPhysics import Zone  #Importing Zone Class
+    from rc_buildingsimulator.building_physics import Zone  #Importing Zone Class
     office = Zone()  #Set an instance of the class
     office.solve_energy(internal_gains, solar_gains, t_out, t_m_prev) #Solve for Heating
     office.solve_lighting(illumination, occupancy) #Solve for Lighting
@@ -75,8 +75,8 @@ INPUT PARAMETER DEFINITION
 
 """
 
-import supply_system
-import emission_system
+from rc_buildingsimulator import supply_system
+from rc_buildingsimulator import emission_system
 
 __authors__ = "Prageeth Jayathissa"
 __copyright__ = "Copyright 2016, Architecture and Building Systems - ETH Zurich"
