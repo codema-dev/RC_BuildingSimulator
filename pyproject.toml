@@ -2,7 +2,7 @@
 name = "rc_buildingsimulator"
 version = "0.1.0"
 description = "A Resistance Capacitance Model for an Energetic Simulation of a Building "
-authors = ["architecture-building-systems <thomas@arch.ethz.ch>"]
+authors = ["Prageeth Jayathissa <p.jayathissa@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6 || ^3.7 || ^3.8 || ^3.9"
