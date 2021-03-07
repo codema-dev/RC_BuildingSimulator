@@ -1,36 +1,34 @@
 import sys
 import os
+from pathlib import Path
 import unittest
 
-# Set root folder one level up, just for this example
-sys.path.insert(0, os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..')))
-
+EXAMPLES = Path(__file__).parents[1] / "examples"
 
 class TestBuildingSim(unittest.TestCase):
 
     def test_annualSimulation(self):
-        runfile = open(os.path.join('examples', 'annualSimulation.py'))
+        runfile = open(EXAMPLES / 'annualSimulation.py')
         exec(runfile.read())
         runfile.close()
 
     def test_annualSimulation_importRadiation(self):
-        runfile = open(os.path.join('examples', 'annualSimulation_importRadiation.py'))
+        runfile = open(EXAMPLES / 'annualSimulation_importRadiation.py')
         exec(runfile.read())
         runfile.close()
 
     def test_calculateRadiation(self):
-        runfile = open(os.path.join('examples', 'calculateRadiation.py'))
+        runfile = open(EXAMPLES / 'calculateRadiation.py')
         exec(runfile.read())
         runfile.close()
 
     def test_hourSimulation(self):
-        runfile = open(os.path.join('examples', 'hourSimulation.py'))
+        runfile = open(EXAMPLES / 'hourSimulation.py')
         exec(runfile.read())
         runfile.close()
 
     def test_sunAngles(self):
-        runfile = open(os.path.join('examples', 'sunAngles.py'))
+        runfile = open(EXAMPLES / 'sunAngles.py')
         exec(runfile.read())
         runfile.close()
 

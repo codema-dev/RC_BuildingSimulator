@@ -59,3 +59,4 @@ jobs:
       run: |
         poetry run python3 rc_buildingsimulator/tests/testRCmodel.py
         poetry run python3 rc_buildingsimulator/tests/testRadiation.py
+        poetry run python3 rc_buildingsimulator/tests/testExamples.py
